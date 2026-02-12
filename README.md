@@ -5,11 +5,16 @@ This project aims to build a robust machine learning system to identify fraudule
 
 
 
-## 📊 Dataset Overview
-The project uses the **Credit Card Fraud Detection dataset**.
-* **Features**: Includes 28 anonymized variables ($V1$ to $V28$) resulting from PCA transformation, plus `Time` and `Amount`.
-* **Target**: `Class` variable where 1 represents Fraud and 0 represents Legitimate transactions.
-* **Imbalance**: The dataset is highly skewed, with only 492 fraud cases out of over 284,000 transactions.
+## 📊 Dataset Overview & Access
+This project utilizes the **Credit Card Fraud Detection dataset** hosted on Kaggle. Because the dataset file size is approximately **143MB**, it is not stored directly in this GitHub repository. Instead, it is downloaded dynamically using the Kaggle API (`kagglehub`).
+
+* **Access**: The data is automatically fetched from the [Kaggle Credit Card Fraud Detection dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
+* **Features**: The dataset contains **30 features**:
+    * `V1` through `V28`: Anonymized variables resulting from a Principal Component Analysis (PCA) transformation.
+    * `Time`: Seconds elapsed between each transaction and the first transaction in the dataset.
+    * `Amount`: The transaction amount.
+* **Target**: The `Class` variable is the response variable (1 for **Fraud**, 0 for **Legitimate**).
+* **Imbalance**: The dataset is highly imbalanced, with the minority class (Fraud) accounting for only **492** out of **284,807** total transactions (~0.172%).
 
 ## 🛠️ Project Workflow
 1.  **Exploratory Data Analysis (EDA)**: Analyzing feature correlations and class distributions.
@@ -38,6 +43,12 @@ The project uses the **Credit Card Fraud Detection dataset**.
 ## 💻 Tech Stack
 * **Language**: Python
 * **Libraries**: Pandas, NumPy, Scikit-learn, Imbalanced-learn (SMOTE), Matplotlib, Seaborn
+
+## 🚀 How to Run
+1.  Clone this repository.
+2.  Install the required libraries: `pip install kagglehub pandas scikit-learn imbalanced-learn seaborn matplotlib`.
+3.  Open the `.ipynb` file in VS Code or Jupyter.
+4.  When running the data loading cell, enter your **Kaggle Username** and **Kaggle Key (KGAT token)** when prompted.****
 
 ## 🏁 Conclusion
 The **Random Forest Classifier** combined with SMOTE oversampling provides the best balance for financial institutions. It successfully identifies the majority of fraudulent transactions (84% recall) while maintaining high precision to ensure legitimate customers are not inconvenienced.
